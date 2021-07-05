@@ -11,11 +11,22 @@ ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 # Make sure we use the virtualenv:
 ENV PATH="/opt/venv/bin:$PATH"
 
+
+RUN pip install -U setuptools wheel pip>=20.0.0
+RUN pip install Cython==0.29.21
+RUN pip install --extra-index-url https://www.piwheels.org/simple --prefer-binary aiodns==2.0.0
+RUN pip install --extra-index-url https://www.piwheels.org/simple --prefer-binary Async-Channel==2.0.10
+RUN pip install --extra-index-url https://www.piwheels.org/simple --prefer-binary OctoBot-Backtesting==1.6.17
+
+RUN pip install --prefer-binary git+https://github.com/valouvaliavlo/OctoBot-Trading.git@deadlock
+
+COPY requirements.txt .
+
+RUN pip install --extra-index-url https://www.piwheels.org/simple --prefer-binary -r requirements.txt
+
 COPY . .
-RUN pip install -U setuptools wheel pip>=20.0.0 \
-    && pip install Cython==0.29.21 \
-    && pip install --extra-index-url https://www.piwheels.org/simple --prefer-binary -r requirements.txt \
-    && python setup.py install
+
+RUN python setup.py install
 
 FROM python:3.8-slim-buster
 
