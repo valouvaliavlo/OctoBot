@@ -22,7 +22,7 @@ RUN pip install --prefer-binary git+https://github.com/valouvaliavlo/OctoBot-Tra
 
 COPY requirements.txt .
 
-RUN pip install --extra-index-url https://www.piwheels.org/simple --prefer-binary -r requirements.txt
+RUN pip install --extra-index-url https://www.piwheels.org/simple --prefer-binary -r custom-requirements.txt
 
 COPY . .
 
