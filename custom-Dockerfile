@@ -17,6 +17,7 @@ RUN pip install Cython==0.29.21
 RUN pip install --extra-index-url https://www.piwheels.org/simple --prefer-binary aiodns==2.0.0
 RUN pip install --extra-index-url https://www.piwheels.org/simple --prefer-binary Async-Channel==2.0.10
 RUN pip install --extra-index-url https://www.piwheels.org/simple --prefer-binary OctoBot-Backtesting==1.6.19
+RUn pip install --prefer-binary ccxt==1.52.2
 RUN pip install --prefer-binary git+https://github.com/valouvaliavlo/trading-backend.git@custom
 
 RUN pip install --prefer-binary git+https://github.com/valouvaliavlo/OctoBot-Trading.git@deadlock
