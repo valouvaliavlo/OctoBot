@@ -22,7 +22,7 @@ RUN pip install --prefer-binary git+https://github.com/valouvaliavlo/trading-bac
 
 RUN pip install --prefer-binary git+https://github.com/valouvaliavlo/OctoBot-Trading.git@deadlock
 
-COPY requirements.txt .
+COPY custom-requirements.txt .
 
 RUN pip install --extra-index-url https://www.piwheels.org/simple --prefer-binary -r custom-requirements.txt
 
